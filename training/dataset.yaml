@@ -1,0 +1,26 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║  EchoVision – training/dataset.yaml                            ║
+# ║  YOLO dataset definition for the custom NAVIGATION-HAZARD       ║
+# ║  model (5 classes). Used by training/train.py & evaluate.py.    ║
+# ║                                                                  ║
+# ║  Expects YOLO-format images/labels produced by                  ║
+# ║  training/prepare_dataset.py, i.e.:                              ║
+# ║    datasets/navigation_dataset/prepared/images/{train,val}      ║
+# ║    datasets/navigation_dataset/prepared/labels/{train,val}      ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+# EchoVision Navigation Dataset
+
+path: ../datasets/navigation_dataset/prepared
+
+train: images/train
+val: images/val
+
+nc: 5
+
+names:
+  0: stairs
+  1: potholes
+  2: open_drains
+  3: road_barriers
+  4: doors

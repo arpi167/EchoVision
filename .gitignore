@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+
+# Output folders
+outputs/
+
+# Dataset
+datasets/
+
+# YOLO caches
+*.cache
+
+# Trained weights
+*.pt
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

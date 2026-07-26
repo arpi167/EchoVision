@@ -1,0 +1,42 @@
+# EchoVision – full requirements (desktop / VS Code)
+# Usage: pip install -r requirements.txt
+#
+# Everything here is open-source and runs 100% offline after the first
+# model download — no paid or rate-limited third-party detection API
+# is used anywhere in this project.
+
+# Core -----------------------------------------------------------------
+numpy>=1.23.5
+opencv-python>=4.1.1
+pillow>=10.3.0
+PyYAML>=5.3.1
+requests>=2.32.2
+tqdm>=4.66.3
+
+# Deep learning ----------------------------------------------------------
+torch>=2.0.0          # see https://pytorch.org/get-started/locally for CUDA builds
+torchvision>=0.15.0
+ultralytics>=8.4.41    # YOLOv8 — general COCO model + navigation-hazard training
+
+# Voice output -------------------------------------------------------------
+pyttsx3>=2.90
+
+# Training / plotting (used by training/train.py, training/evaluate.py) ------
+matplotlib>=3.3
+pandas>=1.1.4
+seaborn>=0.11.0
+scipy>=1.4.1
+
+# Testing --------------------------------------------------------------------
+pytest>=7.4.0
+
+# Misc -------------------------------------------------------------------------
+packaging
+setuptools>=70.0.0
+
+# ── Optional: only needed for training/export_tflite.py (Phase-2 Android) ─────
+# tensorflow>=2.13.0,<=2.15.0
+# onnx>=1.14.0
+# onnx2tf
+# sng4onnx
+# onnx_graphsurgeon
