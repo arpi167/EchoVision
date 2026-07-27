@@ -71,16 +71,18 @@ def train(epochs=100, batch=16, imgsz=640, device="cpu", workers=2):
     print("─" * 60)
 
     results = model.train(
-        data=str(DATASET_CFG),
-        epochs=epochs,
-        batch=batch,
-        imgsz=imgsz,
-        device=device,
-        workers=workers,
-        patience=20,
-        project=str(RUN_DIR),
-        name="navigation_train",
-        exist_ok=True,
+    data=str(DATASET_CFG),
+    epochs=epochs,
+    batch=batch,
+    imgsz=imgsz,
+    device=device,
+    workers=workers,
+    patience=20,
+    project=str(RUN_DIR),
+    name="navigation_train",
+    exist_ok=True,
+    save=True,
+    save_period=5,
     )
 
     best_pt = RUN_DIR / "navigation_train" / "weights" / "best.pt"
