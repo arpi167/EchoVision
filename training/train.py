@@ -34,7 +34,11 @@ RUN_DIR     = BASE_DIR / "outputs" / "runs"
 
 
 def verify_dataset():
-    prepared = BASE_DIR / "datasets" / "navigation_dataset" / "prepared"
+    local_dataset = BASE_DIR / "datasets" / "navigation_dataset" / "prepared"
+    colab_dataset = Path("/content/datasets/navigation_dataset/prepared")
+
+    prepared = colab_dataset if colab_dataset.exists() else local_dataset
+
     for split in ["train", "val"]:
         img_dir = prepared / "images" / split
         imgs = list(img_dir.glob("*.jpg")) + list(img_dir.glob("*.png")) if img_dir.exists() else []
@@ -98,7 +102,7 @@ if __name__ == "__main__":
                         help="Training epochs (100+ recommended for 9-class model)")
     parser.add_argument("--batch",  type=int, default=16, help="Batch size")
     parser.add_argument("--img",    type=int, default=640, help="Image size")
-    parser.add_argument("--device", default="cpu", help="'cpu' or GPU index e.g. '0'")
+    parser.add_argument("--device", default="0", help="'cpu' or GPU index e.g. '0'")
     parser.add_argument("--workers", type=int, default=2, help="Dataloader workers")
     args = parser.parse_args()
     train(args.epochs, args.batch, args.img, args.device, args.workers)
